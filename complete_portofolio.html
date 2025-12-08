@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - John Doe</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #97afe4;
+            --secondary-color: #9ab8f5;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #6a9edc;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .navbar {
+            background-color: var(--primary-color) !important;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .hero {
+            padding: 50px 0;
+            color: white;
+            margin-top: 56px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: white;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            color: white;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            background-color: #bce0f7;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .card-header {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .experience {
+            padding: 60px 0;
+        }
+
+        .experience-item {
+            background-color: #bce0f7;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-title {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-card{
+            background-color: #bce0f7;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-contact td {
+            padding: 10px 15px;
+        }
+
+        .contact-text {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-text h6 {
+            margin: 0;
+        }
+
+        .sosmed {
+            width: 35px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #7e96c5;
+            border-color: #7e96c5;
+        }
+
+        .bg-change-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .bg-change-btn:hover {
+            background-color: #7e96c5;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portofolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Pengalaman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1>Hello!</h1>
+                    <br>
+                    <h3>Saya Gusti Muhammad Rakha Hadiwijaya</h3>
+                    <div class="subtitle">Networking & Web Programmer</div>
+                    <p class="lead">Saya seorang pengembang web dan pengajar di bidang teknik informatika, dengan
+                        pengalaman dalam jaringan komputer dan pemrograman. Saya menyukai tantangan dan selalu mencari
+                        cara baru untuk meningkatkan keterampilan saya.</p>
+
+                    <div>
+                        <button class="bg-change-btn" onclick="ubahBackground()">Ubah Warna Background</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://i.pinimg.com/736x/5e/4b/53/5e4b539497bd5fff24cbde1a5d7802a9.jpg" alt="John Doe"
+                        class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <div class="card-header text-center">
+                            Fotografi
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <div class="project-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <p class="card-text">Deskripsi singkat tentang project fotografi. Platform untuk menampilkan
+                                portofolio fotografi dengan berbagai kategori.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project1Modal">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <div class="card-header text-center">
+                            Networking
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <div class="project-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <p class="card-text">Deskripsi singkat tentang project networking. Sistem monitoring
+                                jaringan untuk perusahaan dengan dashboard real-time.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project2Modal">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <div class="card-header text-center">
+                            Web Development
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <div class="project-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <p class="card-text">Deskripsi singkat tentang project web development. Aplikasi e-learning
+                                dengan kursus online dan sertifikat digital.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project3Modal">Lihat
+                                Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="experience-item">
+                        <h4 class="experience-title">Frontend Developer</h4>
+                        <div class="experience-company">XYZ Corp.</div>
+                        <p>Bertanggung jawab atas pengembangan antarmuka pengguna dan pengalaman pengguna untuk berbagai
+                            aplikasi web. Menggunakan teknologi modern seperti React dan Vue.js untuk menciptakan solusi
+                            yang responsif dan menarik.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="experience-item">
+                        <h4 class="experience-title">Backend Developer</h4>
+                        <div class="experience-company">ABC Ltd.</div>
+                        <p>Mengembangkan logika server, integrasi basis data, dan API untuk mendukung aplikasi web.
+                            Menggunakan Node.js, Express, dan MongoDB untuk membangun sistem yang scalable dan aman.</p>
+                    </div>
+                </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Contact me at</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card contact-card">
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <table class="table-contact mx-auto">
+                                    <tr>
+                                        <td><img class="sosmed"
+                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png"
+                                                alt=""></td>
+                                        <td>
+                                            <span class="contact-text">
+                                                <h6>@rakhahdwjy_ atau</h6> <a href="https://www.instagram.com/rakhahdwjy_/" target="_blank">Klik Disini!</a>
+                                            </span>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><img class="sosmed"
+                                                src="https://images.icon-icons.com/2631/PNG/512/gmail_new_logo_icon_159149.png"
+                                                alt=""></td>
+                                        <td>
+                                            <h6>rakhahadiwijaya123@gmail.com</h6>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="project1Modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Project Fotografi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Platform website untuk portofolio fotografer dengan fitur:</p>
+                    <ul>
+                        <li>Galeri foto dengan berbagai kategori</li>
+                        <li>Sistem manajemen konten yang mudah digunakan</li>
+                        <li>Formulir kontak untuk pemesanan jasa</li>
+                        <li>Responsive design untuk semua perangkat</li>
+                        <li>Integrasi dengan media sosial</li>
+                    </ul>
+                    <p><strong>Teknologi:</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project2Modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Project Networking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Sistem monitoring jaringan dengan fitur:</p>
+                    <ul>
+                        <li>Dashboard real-time untuk pemantauan jaringan</li>
+                        <li>Notifikasi email dan SMS ketika terjadi gangguan</li>
+                        <li>Laporan performa jaringan harian, mingguan, dan bulanan</li>
+                        <li>Pemantauan bandwidth dan penggunaan jaringan</li>
+                        <li>Manajemen perangkat jaringan</li>
+                    </ul>
+                    <p><strong>Teknologi:</strong> Python, Flask, JavaScript, SNMP, Bootstrap</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project3Modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Project Web Development</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Aplikasi e-learning dengan fitur:</p>
+                    <ul>
+                        <li>Kursus online dengan video dan materi pembelajaran</li>
+                        <li>Sistem quiz dan evaluasi</li>
+                        <li>Sertifikat digital untuk peserta yang menyelesaikan kursus</li>
+                        <li>Forum diskusi untuk peserta</li>
+                        <li>Progress tracking untuk memantau perkembangan belajar</li>
+                    </ul>
+                    <p><strong>Teknologi:</strong> React, Node.js, Express, MongoDB, Redux</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var colors = ["#85a2e2", "#7799e2", "#658ce0", "#6a9edc"];
+        var index = 0;
+        function ubahBackground() {
+            document.body.style.backgroundColor = colors
+            [index];
+            index++;
+
+            if (index >= colors.length) {
+                index = 0;
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
